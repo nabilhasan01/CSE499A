@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, Form
+from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from PIL import Image
@@ -74,7 +74,6 @@ async def predict_leaf(file: UploadFile = File(...)):
 
 class SoilInput(BaseModel):
     """Input schema for soil prediction."""
-    N: float
     temperature: float
     humidity: float
     ph: float
@@ -85,7 +84,7 @@ async def predict_soil(input_data: SoilInput):
     """Predict suitable crop based on soil data."""
     try:
         # Define the feature names based on what the scaler was fitted with
-        feature_names = ["N", "temperature", "humidity", "ph"]
+        feature_names = ["temperature", "humidity", "ph"]
         
         # Convert input data to a DataFrame with proper feature names
         features = pd.DataFrame([input_data.model_dump()], columns=feature_names)
