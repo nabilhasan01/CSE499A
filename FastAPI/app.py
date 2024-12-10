@@ -10,9 +10,9 @@ import joblib
 app = FastAPI()
 
 # Paths to models
-LEAF_MODEL_PATH = "plant_disease_model.onnx"
-SOIL_MODEL_PATH = "crop_recommendation_model.pkl"
-SCALER_PATH = "scaler.pkl"
+LEAF_MODEL_PATH = "model/leaf_disease_model.onnx"
+SOIL_MODEL_PATH = "model/crop_recommendation_model.pkl"
+SCALER_PATH = "model/scaler.pkl"
 
 # Class names for leaf disease prediction
 CLASS_NAMES = [
@@ -104,4 +104,4 @@ async def predict_soil(input_data: SoilInput):
 # Run the app
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)

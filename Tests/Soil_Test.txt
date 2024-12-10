@@ -1,0 +1,6 @@
+Temp(°C),Humidity(%),pH
+29.49,94.73,6.19,Muskmelon
+26.18,86.52,6.26,Watermelon
+43.36,93.35,6.94,Papaya
+34.28,90.56,6.83,Papaya
+22.91,90.70,5.60,Apple
