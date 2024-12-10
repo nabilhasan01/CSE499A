@@ -1,4 +1,4 @@
-start start-api-app.cmd
+start start-api-app.bat
 start start-dummy-sensor.bat
 TIMEOUT /T 15
-start-script.cmd
+start-script.bat
