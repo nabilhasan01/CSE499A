@@ -64,7 +64,7 @@ def send_soil_data_to_api(temperature, humidity, ph):
 
 while True:
     try:
-        cam_url = 'http://127.0.0.1/Files/test.jpg' #Dummy cam image
+        cam_url = 'http://127.0.0.1/files/test.jpg' #Dummy cam image
         sensor_data_url = 'http://127.0.0.1/sensor-data' #Dummy Sensor Data
 
         # Capture image from ESP32CAM
