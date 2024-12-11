@@ -11,7 +11,7 @@ esp32cam_ip = "192.168.137.197"
 cam_url = f'http://{esp32cam_ip}/cam-hi.jpg'
 
 # FastAPI service endpoint
-leaf_api_url = "http://127.0.0.1:8000/leaf-predict/"
+leaf_api_url = "http://nabil.ddns.net:8000/leaf-predict/"
 
 # Directory to save images
 image_save_dir = "captured_images"

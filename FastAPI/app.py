@@ -56,7 +56,6 @@ def preprocess_image(image):
 
 @app.post("/leaf-predict/")
 async def predict_leaf(file: UploadFile = File(...)):
-    """Predict leaf disease."""
     try:
         image = Image.open(file.file)
         input_image = preprocess_image(image)
@@ -73,7 +72,6 @@ async def predict_leaf(file: UploadFile = File(...)):
 
 
 class SoilInput(BaseModel):
-    """Input schema for soil prediction."""
     temperature: float
     humidity: float
     ph: float
@@ -81,7 +79,6 @@ class SoilInput(BaseModel):
 
 @app.post("/soil-predict/")
 async def predict_soil(input_data: SoilInput):
-    """Predict suitable crop based on soil data."""
     try:
         # Define the feature names based on what the scaler was fitted with
         feature_names = ["temperature", "humidity", "ph"]

@@ -6,7 +6,7 @@ soil_esp32_ip = "192.168.137.8"
 soil_url = f'http://{soil_esp32_ip}/handledata'
 
 # FastAPI service endpoint
-soil_api_url = "http://127.0.0.1:8000/soil-predict/"
+soil_api_url = "http://nabil.ddns.net:8000/soil-predict/"
 
 def fetch_soil_data():
     try:

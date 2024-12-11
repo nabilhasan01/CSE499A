@@ -13,8 +13,8 @@ url = 'http://' + esp32cam_ip + '/receive_data'
 cam_url = 'http://' + esp32cam_ip + '/cam-hi.jpg'
 
 # FastAPI service endpoints
-leaf_api_url = "http://127.0.0.1:8000/leaf-predict/"
-soil_api_url = "http://127.0.0.1:8000/soil-predict/"
+leaf_api_url = "http://nabil.ddns.net:8000/leaf-predict/"
+soil_api_url = "http://nabil.ddns.net:8000/soil-predict/"
 
 def classify_leaf_image(image):
     try:
@@ -64,8 +64,8 @@ def send_soil_data_to_api(temperature, humidity, ph):
 
 while True:
     try:
-        cam_url = 'http://127.0.0.1/files/test.jpg' #Dummy cam image
-        sensor_data_url = 'http://127.0.0.1/sensor-data' #Dummy Sensor Data
+        cam_url = 'http://nabil.ddns.net/files/test.jpg' #Dummy cam image
+        sensor_data_url = 'http://nabil.ddns.net/sensor-data' #Dummy Sensor Data
 
         # Capture image from ESP32CAM
         img_resp = urllib.request.urlopen(cam_url)
