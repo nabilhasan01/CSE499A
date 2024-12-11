@@ -4,6 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 import random
 import asyncio
+import shutil
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -32,10 +33,35 @@ async def update_sensor_data():
         sensor_data = random.choice(presets)
         await asyncio.sleep(1)
 
-# Start the background task to update sensor data
+# Function to update the cam-hi.jpg image every 10 seconds
+async def update_random_image():
+    while True:
+        try:
+            # List all image files in the directory
+            image_files = [
+                f for f in os.listdir(DIRECTORY) 
+                if os.path.isfile(os.path.join(DIRECTORY, f)) and f.lower().endswith((".jpg", ".jpeg", ".png", ".gif"))
+            ]
+            
+            if image_files:
+                # Select a random image
+                selected_image = random.choice(image_files)
+                source_path = os.path.join(DIRECTORY, selected_image)
+                target_path = os.path.join(DIRECTORY, "cam-hi.jpg")
+
+                # Copy or rename the selected image to cam-hi.jpg
+                shutil.copy(source_path, target_path)
+
+        except Exception as e:
+            print(f"Error updating cam-hi.jpg: {e}")
+
+        await asyncio.sleep(10)
+
+# Start the background tasks
 @app.on_event("startup")
 async def startup_event():
     asyncio.create_task(update_sensor_data())
+    asyncio.create_task(update_random_image())
 
 # Endpoint to get the current sensor data
 @app.get("/sensor-data")
@@ -92,4 +118,4 @@ async def list_subfolder_files(folder_name: str):
 # Run the app
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=80)
+    uvicorn.run(app, host="0.0.0.0", port=8080)
