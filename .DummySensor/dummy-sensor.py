@@ -55,7 +55,7 @@ async def update_random_image():
         except Exception as e:
             print(f"Error updating cam-hi.jpg: {e}")
 
-        await asyncio.sleep(10)
+        await asyncio.sleep(5)
 
 # Start the background tasks
 @app.on_event("startup")
@@ -64,7 +64,7 @@ async def startup_event():
     asyncio.create_task(update_random_image())
 
 # Endpoint to get the current sensor data
-@app.get("/sensor-data")
+@app.get("/handledata")
 async def get_sensor_data():
     return sensor_data
 

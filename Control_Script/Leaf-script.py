@@ -6,8 +6,10 @@ from datetime import datetime
 from PIL import Image
 import matplotlib.pyplot as plt
 
+esp32cam_ip = "nabil.ddns.net:8080/files" ## dummy server
+
 # ESP32-CAM IP address and endpoint
-esp32cam_ip = "192.168.137.197"
+#esp32cam_ip = "192.168.137.197"
 cam_url = f'http://{esp32cam_ip}/cam-hi.jpg'
 
 # FastAPI service endpoint

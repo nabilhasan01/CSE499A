@@ -1,8 +1,10 @@
 import requests
 from datetime import datetime, timedelta
 
+soil_esp32_ip = "nabil.ddns.net:8080" ## dummy server
+
 # Soil sensor ESP32 IP address and endpoint
-soil_esp32_ip = "192.168.137.8"
+#soil_esp32_ip = "192.168.137.8"
 soil_url = f'http://{soil_esp32_ip}/handledata'
 
 # FastAPI service endpoint
